@@ -6,15 +6,16 @@
     <title>Valūtas maiņa</title>
   </head>
   <body>
+    <h1>Valūtas maiņa</h1>
     <input type="number" id="num" />
     <select name="valuta" id="val">
-      <option value="EUR">EUR</option>
-      <option value="GBP">GBP</option>
-      <option value="USD">USD</option>
-      <option value="CHF">CHF</option>
-      <option value="SEK">SEK</option>
+      <option value="EUR" id="EUR">EUR</option>
+      <option value="GBP" id="GBP">GBP</option>
+      <option value="USD" id="USD">USD</option>
+      <option value="CHF" id="CHF">CHF</option>
+      <option value="SEK" id="SEK">SEK</option>
     </select>
-    <button type="submit">Konvertēt</button>
+    <button type="submit" id="submit">Konvertēt</button>
     <ul id="output"></ul>
 
     <script>
@@ -26,12 +27,16 @@
         SEK: { EUR: 0.087, GBP: 0.075, USD: 0.095, CHF: 0.093, SEK: 1.0 },
       };
 
-
       const inputNum = document.getElementById("num");
       const inputValuta = document.getElementById("val");
-      const inputConv = document.getElementById("submit");
+      const convButton = document.getElementById("submit");
+      const output = document.getElementById("output");
 
-      inputConv.addEventListener("click", handleClick);
+      convButton.addEventListener("click", handleClick);
+      function handleClick() {
+        output.innerHTML = `<h3>Result:${inputNum.value} * ${inputValuta.value} * ${0.86}</h3>`;
+        
+      }
     </script>
   </body>
 </html>
